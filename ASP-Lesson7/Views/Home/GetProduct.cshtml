@@ -1,0 +1,33 @@
+@model ASP_Lesson7.Controllers.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+    Product currentProduct = Model.Product;
+    int currentID = Model.CurrentId;
+}
+
+<div class="text-center">
+    <form action="@Url.Action("UpdateProduct")" method="post" >
+        
+        <input type="hidden" name="id" value="@currentID">
+        <div class="col-md-4">
+            <label for="name">Название</label>
+            <input class="form-control" type="text" name="name" value="@currentProduct.Name"><br>
+        </div>
+        <div class="col-md-4">
+            <label for="description">Описание</label>
+            <input class="form-control" type="text" name="description" value="@currentProduct.Description"><br>
+        </div>
+        <div class="col-md-4">
+            <label for="price">Цена за штуку</label>
+            <input class="form-control" type="number" name="price" value="@currentProduct.Price"><br>
+        </div>
+        <div class="col-md-4">
+            <label for="count">Количество</label>
+            <input class="form-control" type="number" name="count" value="@currentProduct.Count"><br>
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-outline-dark">Сохранить изменения</button>
+        </div>
+        
+    </form>
+</div>
